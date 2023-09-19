@@ -44,23 +44,59 @@ def getIceCreamSelection(values):
                 raise ValueError
         except:
             print("Please enter a valid input.")
-    return userInput-1
+    return list(values)[userInput-1]
 
 def getToppingSelection(values):
-    pass
+    maxLength = max(len(value) for value in values)
+    for value in values:
+        print(f"{list(values).index(value)+1}: {value.ljust(maxLength)} - ${values[value]}")
+    while True:
+        try:
+            userInput = int(input("Enter the number of the Topping you would like: "))
+            if userInput < len(values) or userInput > 0:
+                break
+            else:
+                raise ValueError
+        except:
+            print("Please enter a valid input.")
+    return list(values)[userInput-1]
 
 def getConeSelection(values):
-    pass
+    maxLength = max(len(value) for value in values)
+    for value in values:
+        print(f"{list(values).index(value)+1}: {value.ljust(maxLength)} - ${values[value]}")
+    while True:
+        try:
+            userInput = int(input("Enter the number of the Cone you would like: "))
+            if userInput < len(values) or userInput > 0:
+                break
+            else:
+                raise ValueError
+        except:
+            print("Please enter a valid input.")
+    return list(values)[userInput-1]
 
 def main() -> None:
     icecreamValues = getIceCreamValues("icecreams.csv")
     toppingValues = getToppingValues("toppings.csv")
     coneValues = getConeValues("cones.csv")
 
-    print("Welcome to Zeke 'n' Heather's Gelato Grotto!")
+    print("Welcome to Zeke 'n' Heather's Gelato Grotto!\n--------------------------------------------\n")
+    print("--- Choose your Ice Cream ---")
+    icecreamChoice = getIceCreamSelection(icecreamValues)
+    print("\n--- Choose your Topping ---")
+    toppingChoice = getToppingSelection(toppingValues)
+    print("\n--- Choose your Cone ---")
+    coneChoice = getConeSelection(coneValues)
 
-    iceCreamChoiceIndex = getIceCreamSelection(icecreamValues)
-    print(list(icecreamValues)[iceCreamChoiceIndex])
+    icecreamPrice = float(icecreamValues[icecreamChoice][0])
+    toppingPrice = float(toppingValues[toppingChoice])
+    conePrice = float(coneValues[coneChoice])
+
+    total = icecreamPrice + toppingPrice + conePrice
+
+    print(f"\nItems chosen:\n- Icecream: ${'{:.2f}'.format(icecreamPrice)} {icecreamChoice}\n- Topping: ${'{:.2f}'.format(toppingPrice)} {toppingChoice}\n- Cone: ${'{:.2f}'.format(conePrice)} {coneChoice}\nTotal: ${'{:.2f}'.format(total)}")
+    
 
 if __name__ == "__main__":
     main()
