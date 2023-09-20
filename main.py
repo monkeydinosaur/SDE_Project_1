@@ -1,5 +1,3 @@
-# Ice Cream Shop CLI
-
 import csv
 
 def getIceCreamValues(fileName):
@@ -95,7 +93,7 @@ def main() -> None:
 
     total = icecreamPrice + toppingPrice + conePrice
 
-    print(f"\nItems chosen:\n- Icecream: ${'{:.2f}'.format(icecreamPrice)} {icecreamChoice}\n- Topping: ${'{:.2f}'.format(toppingPrice)} {toppingChoice}\n- Cone: ${'{:.2f}'.format(conePrice)} {coneChoice}\nTotal: ${'{:.2f}'.format(total)}")
+    print(f"\nItems chosen:\n- Ice Cream: ${'{:.2f}'.format(icecreamPrice)} {icecreamChoice}\n- Topping: ${'{:.2f}'.format(toppingPrice)} {toppingChoice}\n- Cone: ${'{:.2f}'.format(conePrice)} {coneChoice}\nTotal: ${'{:.2f}'.format(total)}")
     
 
 if __name__ == "__main__":
