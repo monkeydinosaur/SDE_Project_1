@@ -37,12 +37,12 @@ def getIceCreamSelection(values):
         try:
             userInput = int(input("Enter the number of the Ice Cream you would like: "))
             if userInput < len(values) or userInput > 0:
-                break
+                return list(values)[userInput-1]
             else:
                 raise ValueError
         except:
             print("Please enter a valid input.")
-    return list(values)[userInput-1]
+
 
 def getToppingSelection(values):
     maxLength = max(len(value) for value in values)
@@ -52,12 +52,12 @@ def getToppingSelection(values):
         try:
             userInput = int(input("Enter the number of the Topping you would like: "))
             if userInput < len(values) or userInput > 0:
-                break
+                return list(values)[userInput-1]
             else:
                 raise ValueError
         except:
             print("Please enter a valid input.")
-    return list(values)[userInput-1]
+
 
 def getConeSelection(values):
     maxLength = max(len(value) for value in values)
@@ -67,12 +67,12 @@ def getConeSelection(values):
         try:
             userInput = int(input("Enter the number of the Cone you would like: "))
             if userInput < len(values) or userInput > 0:
-                break
+                return list(values)[userInput-1]
             else:
                 raise ValueError
         except:
             print("Please enter a valid input.")
-    return list(values)[userInput-1]
+
 
 def main() -> None:
     icecreamValues = getIceCreamValues("icecreams.csv")
