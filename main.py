@@ -36,7 +36,7 @@ def getIceCreamSelection(values):
     while True:
         try:
             userInput = int(input("Enter the number of the Ice Cream you would like: "))
-            if userInput < len(values) or userInput > 0:
+            if userInput < len(values) and userInput > 0:
                 return list(values)[userInput-1]
             else:
                 raise ValueError
@@ -51,7 +51,7 @@ def getToppingSelection(values):
     while True:
         try:
             userInput = int(input("Enter the number of the Topping you would like: "))
-            if userInput < len(values) or userInput > 0:
+            if userInput < len(values) and userInput > 0:
                 return list(values)[userInput-1]
             else:
                 raise ValueError
@@ -66,7 +66,7 @@ def getConeSelection(values):
     while True:
         try:
             userInput = int(input("Enter the number of the Cone you would like: "))
-            if userInput < len(values) or userInput > 0:
+            if userInput < len(values) and userInput > 0:
                 return list(values)[userInput-1]
             else:
                 raise ValueError
